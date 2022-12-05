@@ -26,8 +26,13 @@ public class ArticleComment extends AuditingFields {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Setter @ManyToOne(optional = false) private Article article;
-    @Setter @Column(nullable = false, length = 500) private String content;
+    @Setter
+    @ManyToOne(optional = false)
+    private Article article;
+    @Setter
+    @Column(nullable = false, length = 500)
+    private String content;
+
     protected ArticleComment() {
     }
 
@@ -37,7 +42,7 @@ public class ArticleComment extends AuditingFields {
     }
 
     public static ArticleComment of(Article article, String content) {
-        return new ArticleComment(article,content);
+        return new ArticleComment(article, content);
     }
 
     @Override
